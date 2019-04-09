@@ -41,11 +41,7 @@ class App extends Component {
         <Title />
         <Form getCurrentWeather={this.getCurrentWeather} />
         <Weather
-          temp={this.state.temp}
-          city={this.state.city}
-          country={this.state.country}
-          sunrise={this.state.sunrise}
-          sunset={this.state.sunset}
+          {...this.state}
         />
       </div>
     );
