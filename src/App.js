@@ -5,7 +5,7 @@ import Weather from './components/Weather';
 import Form from './components/Form';
 
 const apiKey = 'f38816136abbc40b2492acabf0d36e10';
-const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+const baseUrl = 'https://api.openweathermap.org/data/2.5';
 
 class App extends Component {
 
@@ -18,10 +18,10 @@ class App extends Component {
     error: undefined,
   };
 
-  getCurrentWeather = async (event) => {
-    event.preventDefault();
-    const city = event.target.elements.city.value;
-    const apiUrl = await fetch(`${baseUrl}${city}&appid=${apiKey}&units=metric`);
+  getWeather = async (e) => {
+    e.preventDefault();
+    const city = e.target.elements.city.value;
+    const apiUrl = await fetch(`${baseUrl}/weather?q=${city}&appid=${apiKey}&units=metric`);
     const data = await apiUrl.json();
     console.log(data);
 
@@ -38,8 +38,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Title />
-        <Form getCurrentWeather={this.getCurrentWeather} />
+        <Title/>
+        <Form getWeather={this.getWeather}/>
         <Weather
           {...this.state}
         />
