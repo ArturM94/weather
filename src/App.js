@@ -24,15 +24,25 @@ class App extends Component {
     const apiUrl = await fetch(`${baseUrl}/weather?q=${city}&appid=${apiKey}&units=metric`);
     const data = await apiUrl.json();
     console.log(data);
-
-    this.setState({
-      temp: data.main.temp,
-      city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.weather[0].description,
-      error: '',
-    });
+    if (city) {
+      this.setState({
+        temp: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: '',
+      });
+    } else {
+      this.setState({
+        temp: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: data.message,
+      });
+    }
   };
 
   render() {
