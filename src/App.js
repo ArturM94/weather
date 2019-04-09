@@ -13,8 +13,9 @@ class App extends Component {
     temp: undefined,
     city: undefined,
     country: undefined,
-    sunrise: undefined,
-    sunset: undefined,
+    humidity: undefined,
+    description: undefined,
+    error: undefined,
   };
 
   getCurrentWeather = async (event) => {
@@ -28,8 +29,9 @@ class App extends Component {
       temp: data.main.temp,
       city: data.name,
       country: data.sys.country,
-      sunrise: data.sys.sunrise,
-      sunset: data.sys.sunset,
+      humidity: data.main.humidity,
+      description: data.weather[0].description,
+      error: '',
     });
   };
 
