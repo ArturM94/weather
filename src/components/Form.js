@@ -3,7 +3,7 @@ import React from 'react';
 const Form = (props) => (
   <form onSubmit={props.getWeather}>
     <input type="text" name="city" placeholder="City..."/>
-    <button>Submit</button>
+    <button>Get Weather</button>
   </form>
 );
 
