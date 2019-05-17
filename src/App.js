@@ -8,15 +8,17 @@ const apiKey = 'f38816136abbc40b2492acabf0d36e10';
 const baseUrl = 'https://api.openweathermap.org/data/2.5';
 
 class App extends Component {
-
-  state = {
-    temp: undefined,
-    city: undefined,
-    country: undefined,
-    humidity: undefined,
-    description: undefined,
-    error: undefined,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      temp: undefined,
+      city: undefined,
+      country: undefined,
+      humidity: undefined,
+      description: undefined,
+      error: undefined,
+    };
+  }
 
   getWeather = async (e) => {
     e.preventDefault();
